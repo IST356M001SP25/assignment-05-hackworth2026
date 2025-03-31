@@ -9,7 +9,7 @@ survey = pd.read_csv('https://docs.google.com/spreadsheets/d/1IPS5dBSGtwYVbjsfba
 # extract year from date # todo refactor this to a function
 survey['year'] = survey['Timestamp'].apply(pl.extract_year_mdy)
 # save the survey data to a csv file in the cache
-survey.to_csv('cache/survey.csv', index=False)
+survey.to_csv('assignment-05-hackworth2026/cache/survey.csv', index=False)
 
 # get each unique year in the survey data
 years = survey['year'].unique()
@@ -23,10 +23,10 @@ for year in years:
     # add the year column
     col_year['year'] = year
     # save the data to a csv file in the cache
-    col_year.to_csv(f'cache/col_{year}.csv', index=False)
+    col_year.to_csv(f'assignment-05-hackworth2026/cache/col_{year}.csv', index=False)
 
 
 # Read in states data table
 url = "https://docs.google.com/spreadsheets/d/14wvnQygIX1eCVo7H5B7a96W1v5VCg6Q9yeRoESF6epw/export?format=csv"
 state_table = pd.read_csv(url)
-state_table.to_csv('cache/states.csv', index=False)
+state_table.to_csv('assignment-05-hackworth2026/cache/states.csv', index=False)

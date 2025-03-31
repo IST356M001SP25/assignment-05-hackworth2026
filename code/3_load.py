@@ -40,8 +40,8 @@ def upload_file(file_name, bucket_name, object_name=None):
     return True
 
 if __name__ == '__main__':
-    files = ['cache/survey_combined.csv', 'cache/annual_salary_adjusted_by_location_and_age.csv', 'cache/annual_salary_adjusted_by_location_and_education.csv']
+    files = ['assignment-05-hackworth2026/cache/survey_combined.csv', 'assignment-05-hackworth2026/cache/annual_salary_adjusted_by_location_and_age.csv', 'assignment-05-hackworth2026/cache/annual_salary_adjusted_by_location_and_education.csv']
     bucket = "ist356mafudge"
     for file in files:
-        obj = file.replace('cache/', '')
+        obj = file.replace('assignment-05-hackworth2026/cache/', '')
         upload_file(file, bucket, obj)
