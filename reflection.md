@@ -23,5 +23,3 @@ Examples:
 
 `--- Reflection Below This Line ---`
 
-I found this data pipeline building was a bit difficult for me to complete, leaving areas unsuccessful. I struggled with understanding the flow of data and how to properly connect the different components. I need more practice in designing and implementing data pipelines to improve my skills in this area.
-
