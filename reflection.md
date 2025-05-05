@@ -23,3 +23,4 @@ Examples:
 
 `--- Reflection Below This Line ---`
 
+I felt a bit better with this assignment. I still feel that I need to spend more time on my understanding and application of functions and the proper manner to structure its code. I feel that the later assignments gave me a more open perspective and better way of tackling the issues that come with the actual result of my code functions. Overall, I feel that I have a better understand how to extract, transform, and load data into different data types. And the proper way of managing debugs.
