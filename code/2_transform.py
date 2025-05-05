@@ -3,10 +3,10 @@ import pandaslib as pl
 import streamlit as st
 
 # Load survey data from cache
-survey_data = pd.read_csv('assignment-05-hackworth2026/cache/survey.csv')
+survey_data = pd.read_csv('assignment05Hackworth2026/cache/survey.csv')
 
 # Load states data from cache
-states_data = pd.read_csv('assignment-05-hackworth2026/cache/states.csv')
+states_data = pd.read_csv('assignment05Hackworth2026/cache/states.csv')
 
 # Handle NaN values in 'year' column and filter out rows with NaN years
 survey_data = survey_data[survey_data['year'].notna()]
@@ -15,7 +15,7 @@ survey_data = survey_data[survey_data['year'].notna()]
 cols = []
 for year in survey_data['year'].unique():
     try:
-        col = pd.read_csv(f'assignment-05-hackworth2026/cache/col_{year}.csv')
+        col = pd.read_csv(f'assignment05Hackworth2026/cache/col_{year}.csv')
         cols.append(col)
     except FileNotFoundError:
         st.warning(f"File for year {year} not found, skipping.")
@@ -47,15 +47,15 @@ combined["_annual_salary_cleaned"] = combined["What is your annual salary? (You'
 combined['_annual_salary_adjusted'] = combined.apply(lambda row: row["_annual_salary_cleaned"] * (100 / row['Cost of Living Index']), axis=1)
 
 # Save the combined data to a csv file
-combined.to_csv('assignment-05-hackworth2026/cache/survey_dataset.csv', index=False)
+combined.to_csv('assignment05Hackworth2026/cache/survey_dataset.csv', index=False)
 
 # Annual Salary adjusted by location and age
 annual_salary_adjusted_by_location_and_age = combined.pivot_table(index='_full_city', columns='How old are you?', values='_annual_salary_adjusted', aggfunc='mean')
-annual_salary_adjusted_by_location_and_age.to_csv('assignment-05-hackworth2026/cache/annual_salary_adjusted_by_location_and_age.csv')
+annual_salary_adjusted_by_location_and_age.to_csv('assignment05Hackworth2026/cache/annual_salary_adjusted_by_location_and_age.csv')
 
 # Annual Salary adjusted by location and education
 annual_salary_adjusted_by_location_and_education = combined.pivot_table(index='_full_city', columns='What is your highest level of education completed?', values='_annual_salary_adjusted', aggfunc='mean')
-annual_salary_adjusted_by_location_and_education.to_csv('assignment-05-hackworth2026/cache/annual_salary_adjusted_by_location_and_education.csv')
+annual_salary_adjusted_by_location_and_education.to_csv('assignment05Hackworth2026/cache/annual_salary_adjusted_by_location_and_education.csv')
 
 # Display the education-based report in Streamlit
 st.write(annual_salary_adjusted_by_location_and_education)
